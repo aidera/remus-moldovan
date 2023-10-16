@@ -1,0 +1,158 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.bgVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.content {
+  max-width: 420px;
+
+  h1 {
+    font-size: 64px;
+
+    animation-duration: 10s;
+    animation-name: HeaderAnimation;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 50px;
+
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      display: inline-block;
+      padding: 6px 12px;
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--main-accent-color);
+      }
+    }
+  }
+}
+
+.quoteContainer {
+  text-align: right;
+
+  animation-duration: 8s;
+  animation-name: QuoteAnimation;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  q {
+    font-size: 16px;
+    font-style: italic;
+  }
+}
+
+.accentLink {
+  position: relative;
+}
+
+.accentLink::after {
+  position: absolute;
+  content: ' ';
+  width: 150px;
+  height: 24px;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  display: block;
+  background-image: url('/brush-stroke-1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position:  bottom;
+
+  animation-duration: 7s;
+  animation-name: BrushStrokeAnimation;
+  animation-iteration-count: infinite;
+  mask-image: linear-gradient(to right, transparent 0%, black 0%);
+  mask-size: 200% 100%;
+  mask-repeat: no-repeat;
+  mask-position: 0 0;
+}
+
+@keyframes BrushStrokeAnimation {
+  0% {
+    mask-position: 200% 0;
+    opacity: 1;
+    
+  }
+  10% {
+    mask-position: 200% 0;
+    opacity: 1;
+    
+  }
+  30% {
+    mask-position: 0 0;
+    opacity: 1;
+  }
+  90% {
+    mask-position: 0 0;
+    opacity: 1;
+  }
+  100% {
+    mask-position: 0 0;
+    opacity: 0;
+  }
+}
+
+@keyframes HeaderAnimation {
+  0% {
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.03) rotate(0deg) translateY(0);
+  }
+
+  100% {
+    transform: scale(1.06) rotate(0deg) translateY(2px);
+  }
+}
+
+@keyframes QuoteAnimation {
+  0% {
+    transform: scale(1) rotate(0deg) translateY(0);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.03) rotate(0deg) translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.06) rotate(0deg) translateY(-2px);
+    opacity: 1;
+  }
+}
+
+
