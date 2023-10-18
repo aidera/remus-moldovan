@@ -50,7 +50,7 @@ export default function Home() {
         muted
         poster="https://assets.codepen.io/6093409/river.jpg"
       >
-        <source src="/home-background-video.mp4" type="video/mp4" />
+        <source src="/Sequence 01_1.mp4" type="video/mp4" />
       </video>
 
       <div className={styles.content}>

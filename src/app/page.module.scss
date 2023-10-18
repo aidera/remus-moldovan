@@ -17,19 +17,34 @@
   top: 0;
   bottom: 0;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .content {
-  max-width: 420px;
+  max-width: 620px;
+  padding: 200px 32px;
+
+  @media (max-width: 724px) {
+    padding: 100px 32px;
+    max-width: 100%;
+    text-align: center;
+  }
 
   h1 {
-    font-size: 64px;
+    font-size: 82px;
 
     animation-duration: 10s;
     animation-name: HeaderAnimation;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+
+    @media (max-width: 724px) {
+      font-size: 64px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 48px;
+    }
   }
 
   nav {
@@ -40,11 +55,15 @@
     gap: 12px;
     margin-top: 50px;
 
+    @media (max-width: 724px) {
+      flex-direction: column;
+    }
+
     a {
       text-decoration: none;
-      font-size: 16px;
+      font-size: 24px;
       display: inline-block;
-      padding: 6px 12px;
+      padding: 12px 24px;
       transition: 0.2s;
 
       &:hover {
@@ -62,9 +81,20 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 
+  @media (max-width: 724px) {
+    text-align: center;
+  }
+  @media (max-width: 500px) {
+    margin-top: 10px;
+  }
+
   q {
-    font-size: 16px;
+    font-size: 24px;
     font-style: italic;
+
+    @media (max-width: 500px) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -75,8 +105,8 @@
 .accentLink::after {
   position: absolute;
   content: ' ';
-  width: 150px;
-  height: 24px;
+  width: 220px;
+  height: 32px;
   left: 50%;
   bottom: -8px;
   transform: translateX(-50%);
@@ -84,7 +114,7 @@
   background-image: url('/brush-stroke-1.png');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position:  bottom;
+  background-position: bottom;
 
   animation-duration: 7s;
   animation-name: BrushStrokeAnimation;
@@ -99,12 +129,10 @@
   0% {
     mask-position: 200% 0;
     opacity: 1;
-    
   }
   10% {
     mask-position: 200% 0;
     opacity: 1;
-    
   }
   30% {
     mask-position: 0 0;
@@ -154,5 +182,3 @@
     opacity: 1;
   }
 }
-
-

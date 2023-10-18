@@ -98,6 +98,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -139,6 +140,8 @@ table {
 /* GLOBAL */
 body {
   font-family: 'Linden Hill', serif;
+  overflow-y: auto;
+  overflow-x: hidden;
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
