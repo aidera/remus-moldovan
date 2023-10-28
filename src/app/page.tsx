@@ -5,9 +5,33 @@ import styles from './page.module.scss';
 import Link from 'next/link';
 
 export default function Home() {
-  const [headersStyles, setHeadersStyles] = useState({});
   const mainRef = useRef<HTMLDivElement>(null);
   const headersRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const [headersStyles, setHeadersStyles] = useState({});
+  const [videoAnimationKey1, setVideoAnimationKey1] =
+    useState<boolean>(false);
+  const [videoAnimationKey2, setVideoAnimationKey2] =
+    useState<boolean>(false);
+
+  const handleTimeUpdate = () => {
+    if (
+      videoRef.current &&
+      videoRef.current.currentTime >= 1 &&
+      !videoAnimationKey1
+    ) {
+      setVideoAnimationKey1(true);
+    }
+
+    if (
+      videoRef.current &&
+      videoRef.current.currentTime >= 6 &&
+      !videoAnimationKey2
+    ) {
+      setVideoAnimationKey2(true);
+    }
+  };
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -44,16 +68,35 @@ export default function Home() {
   return (
     <main ref={mainRef} className={styles.main}>
       <video
+        ref={videoRef}
+        onTimeUpdate={handleTimeUpdate}
         className={styles.bgVideo}
         autoPlay
-        loop
         muted
-        poster="https://assets.codepen.io/6093409/river.jpg"
+        poster="/Video-sequence-first.jpg"
       >
-        <source src="/Sequence 01_1.mp4" type="video/mp4" />
+        <source src="/Video-background.mp4" type="video/mp4" />
       </video>
 
-      <div className={styles.content}>
+      <div
+        className={
+          styles.initialContent +
+          (!videoAnimationKey1 ? ' ' + styles.initialContent__active : '')
+        }
+      >
+        <div className={styles.initialContent_background}></div>
+        <div className={styles.initialContent_contentWrapper}>
+          <img src="/logo-2.png" />
+          <span>It's How I See</span>
+        </div>
+      </div>
+
+      <div
+        className={
+          styles.mainContent +
+          (videoAnimationKey2 ? ' ' + styles.mainContent__active : '')
+        }
+      >
         <div ref={headersRef} className={styles.headers} style={headersStyles}>
           <h1>Remus Moldovan</h1>
 

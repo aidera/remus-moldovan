@@ -2,6 +2,15 @@
 /* font-family: 'Linden Hill', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Linden+Hill:ital@0;1&display=swap');
 
+/* font-family: 'AScript', serif; */
+@font-face {
+  font-family: 'AScript';
+  src: url('/fonts/AScript.woff2') format('woff2'),
+       url('/fonts/AScript.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* VARS */
 :root {
   --main-bg-color: #DCE3E1;
