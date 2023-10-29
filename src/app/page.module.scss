@@ -5,6 +5,7 @@
   align-items: center;
   min-height: 100vh;
   position: relative;
+  // background: black;
 }
 
 .bgVideo {
@@ -17,70 +18,19 @@
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: -1;
-  opacity: 1;
-}
-
-.initialContent {
-  opacity: 0;
-  transition: opacity 7s;
-}
-
-.initialContent__active {
-  opacity: 1;
-}
-
-.initialContent_background {
-  background-color: black;
-  opacity: 0.8;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 110vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.initialContent_contentWrapper {
-  position: fixed;
-  bottom: 10vh;
-  right: 10vw;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-
-  animation-duration: 5s;
-  animation-name: LogoAnimation;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-
-  img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    opacity: 0.2;
-  }
-
-  span {
-    font-family: 'AScript', serif;
-    font-size: 48px;
-    color: white;
-    opacity: 0.6;
-    padding-top: 80px;
-  }
+  z-index: 0;
+  opacity: 0.4;
 }
 
 .mainContent {
   text-align: center;
   padding: 200px 32px;
   max-width: 620px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 2s;
   position: relative;
   z-index: 3;
+  // color: rgb(231, 231, 231);
 
   @media (max-width: 724px) {
     padding: 100px 32px;
@@ -128,10 +78,6 @@
       }
     }
   }
-}
-
-.mainContent__active {
-  opacity: 1;
 }
 
 .quoteContainer {
@@ -186,6 +132,17 @@
   mask-position: 0 0;
 }
 
+.paintingLinkContainer {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+
+  span,
+  a {
+    font-size: 16px;
+  }
+}
+
 @keyframes BrushStrokeAnimation {
   0% {
     mask-position: 200% 0;
@@ -206,17 +163,6 @@
   100% {
     mask-position: 0 0;
     opacity: 0;
-  }
-}
-
-@keyframes LogoAnimation {
-  0% {
-    transform: scale(1) rotate(0deg) translateY(0);
-  }
-
-
-  100% {
-    transform: scale(1.06) rotate(-2deg) translateY(2px);
   }
 }
 
